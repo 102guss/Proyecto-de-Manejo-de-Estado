@@ -16,6 +16,8 @@ function ListaCompras () {
   // Función para eliminar un producto de la lista
   const eliminarProducto = (index) => {
     // Completar la lógica para eliminar un producto
+    const nuevaLista = productos.filter((_, i) => i !== index)
+    setProductos(nuevaLista)
   }
 
   return (
@@ -26,11 +28,11 @@ function ListaCompras () {
         value={nuevoProducto}
         onChange={(e) => setNuevoProducto(e.target.value)}
       />
-      <button onClick={agregarProducto}>Agregar</button>
+      <button onClick={agregarProducto}>Agregar</button> {/* hasta aqui solo lo agrega al array */}
       <ul>
         {productos.map((producto, index) => (
-          <li key={index}>
-            {producto}
+          <li key={index} >
+            {producto}&nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={() => eliminarProducto(index)}>Eliminar</button>
           </li>
         ))}
